@@ -38,37 +38,46 @@
         .card p { font-size: 0.9rem; color: #666; flex-grow: 1; }
         .btn { margin-top: 15px; font-weight: bold; color: var(--secondary); }
 
-        .skills-section { margin-top: 50px; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .skill-group { margin-bottom: 20px; }
-        .skill-name { font-weight: bold; display: flex; justify-content: space-between; margin-bottom: 5px; }
-        .progress-bar { background: #eee; border-radius: 10px; height: 12px; overflow: hidden; }
-        .progress-fill { background: var(--secondary); height: 100%; border-radius: 10px; }
+        /* Style de la section Formation */
+        .education-section { margin-top: 50px; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .school-entry { display: flex; align-items: center; gap: 20px; margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        .school-entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .school-logo { width: 80px; height: 80px; object-fit: contain; flex-shrink: 0; }
+        .school-details h3 { margin: 0 0 5px 0; color: var(--primary); font-size: 1.1rem; }
+        .school-details p { margin: 0; color: #666; font-size: 0.9rem; }
+        .school-date { color: var(--secondary); font-weight: bold; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header-box">
-        <p>🎓 <strong>Apprenti ingénieur en Électronique et Informatique à Polytech Sorbonne</strong> [cite: 11]</p>
-        <p>À la recherche d'un contrat d'apprentissage de 3 ans [cite: 7]</p>
-        <p>📧 <a href="mailto:VannarithYem@outlook.fr" style="color: var(--secondary); text-decoration: none;">VannarithYem@outlook.fr</a> [cite: 3]</p>
+        <p>🎓 <strong>Apprenti ingénieur en Électronique et Informatique à Polytech Sorbonne</strong></p>
+        <p>À la recherche d'un contrat d'apprentissage de 3 ans pour accompagner ma formation</p>
+        <p>📧 <a href="mailto:VannarithYem@outlook.fr" style="color: var(--secondary); text-decoration: none;">VannarithYem@outlook.fr</a></p>
     </div>
 
     <h1>Vannarith YEM - Portfolio Projets</h1>
 
-    <div class="skills-section">
-        <h2 style="text-align: center; color: var(--primary);">Compétences Clés</h2>
-        <div class="skill-group">
-            <div class="skill-name"><span>Programmation (C, C++, Python)</span><span>85%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+    <div class="education-section">
+        <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Mon Parcours de Formation (Depuis 2023)</h2>
+        
+        <div class="school-entry">
+            <img src="sorbonne.jpg" alt="Logo Polytech Sorbonne" class="school-logo">
+            <div class="school-details">
+                <span class="school-date">2026 - 2029 (En cours)</span>
+                <h3>Cycle Ingénieur - Électronique et Informatique</h3>
+                <p>Formation par apprentissage (3 ans) | Sorbonne Université</p>
+            </div>
         </div>
-        <div class="skill-group">
-            <div class="skill-name"><span>Conception PCB & CFAO (KiCad, GALAAD)</span><span>90%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
-        </div>
-        <div class="skill-group">
-            <div class="skill-name"><span>Systèmes Embarqués (STM32, Arduino)</span><span>80%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+
+        <div class="school-entry">
+            <img src="cachan.png" alt="Logo IUT de Cachan" class="school-logo">
+            <div class="school-details">
+                <span class="school-date">2023 - 2026</span>
+                <h3>BUT GEII (Génie Électrique et Informatique Industrielle)</h3>
+                <p>Spécialité Électronique Embarquée | IUT de Cachan - Université Paris-Saclay</p>
+            </div>
         </div>
     </div>
 
@@ -76,35 +85,35 @@
         <a href="ratp-ame.html" class="card">
             <span class="type">Stage - RATP AME</span>
             <h2>Affichage Énergie Statique</h2>
-            <p>Développement d'un système de mesure ESD avec capteur KEYENCE et Arduino[cite: 39, 40].</p>
+            <p>Développement d'un système de mesure ESD avec capteur KEYENCE et Arduino.</p>
             <span class="btn">Détails techniques →</span>
         </a>
 
         <a href="technodrill.html" class="card">
             <span class="type">Projet S5 - IUT Cachan</span>
             <h2>Fraiseuse CNC Technodrill 3</h2>
-            <p>Mise en œuvre d'une chaîne CFAO complète et rédaction d'un tutoriel de formation[cite: 74, 75, 83].</p>
+            <p>Mise en œuvre d'une chaîne CFAO complète et rédaction d'un tutoriel de formation.</p>
             <span class="btn">Détails techniques →</span>
         </a>
 
         <a href="ratp-infra.html" class="card">
             <span class="type">Stage - RATP INFRA</span>
             <h2>Portes Palières Ligne 13</h2>
-            <p>Maintenance des systèmes de commande COPP2 et façades de quai[cite: 34, 35, 36].</p>
+            <p>Maintenance des systèmes de commande COPP2 et façades de quai.</p>
             <span class="btn">Détails techniques →</span>
         </a>
 
         <a href="cockpit.html" class="card">
             <span class="type">Projet Académique</span>
             <h2>Cockpit Hélicoptère</h2>
-            <p>Conception d'une carte électronique sous KiCad pour simulateur de vol[cite: 16, 17].</p>
+            <p>Conception d'une carte électronique sous KiCad pour simulateur de vol.</p>
             <span class="btn">Détails techniques →</span>
         </a>
 
         <a href="robot.html" class="card">
             <span class="type">Projet Académique</span>
             <h2>Robot Gamel Trophy</h2>
-            <p>Fabrication de PCB et programmation de robot suiveur de ligne[cite: 25, 26, 27].</p>
+            <p>Fabrication de PCB et programmation de robot suiveur de ligne.</p>
             <span class="btn">Détails techniques →</span>
         </a>
     </div>
