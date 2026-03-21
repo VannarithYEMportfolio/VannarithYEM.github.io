@@ -2,22 +2,83 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mon Portfolio - Prénom Nom</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio | Projet Diamant</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
-        h1 { color: #2c3e50; }
-        .projet { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+        /* Style général */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Conteneur du projet */
+        .card {
+            background: #fff;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden; /* Pour que l'image suive l'arrondi des coins */
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Petit effet au survol */
+        }
+
+        /* Style de l'image */
+        .card img {
+            width: 100%;       /* Prend toute la largeur de la carte */
+            height: auto;      /* Garde les proportions */
+            display: block;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        /* Texte sous l'image */
+        .content {
+            padding: 25px;
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Bienvenue sur mon Portfolio</h1>
-    <p>Bonjour, je suis [Ton Métier]. Voici mes projets :</p>
-
-    <div class="projet">
-        <h2>Nom du Projet 1</h2>
-        <p>Description courte de ce que tu as réalisé.</p>
-        <a href="https://lien-vers-ton-projet.com">Voir le projet</a>
+    <div class="card">
+        <img src="diamant.png" alt="Aperçu du projet Diamant">
+        
+        <div class="content">
+            <span class="badge">Design & Graphisme</span>
+            <h1>Projet Diamant</h1>
+            <p>Voici une capture d'écran de mon dernier projet. J'ai travaillé sur les détails visuels et l'interface pour obtenir ce résultat.</p>
+            
+            <a href="cv.pdf" style="color: #3498db; text-decoration: none; font-weight: bold;">← Retour au CV</a>
+        </div>
     </div>
 
 </body>
