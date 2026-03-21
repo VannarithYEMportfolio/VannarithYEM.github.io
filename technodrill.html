@@ -14,7 +14,8 @@
         
         h1 { color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 15px; margin-bottom: 30px; }
         h2 { color: var(--primary); margin-top: 40px; font-size: 1.5rem; }
-        h3 { color: #7f8c8d; font-size: 1.1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; }
+        h3 { color: #7f8c8d; font-size: 1.1rem; font-weight: normal; margin-top: -10px; margin-bottom: 10px; text-align: center; }
+        .responsable { text-align: center; color: #7f8c8d; font-style: italic; margin-bottom: 30px; font-size: 0.95rem; }
         
         p { margin-bottom: 20px; text-align: justify; }
         ul { margin-bottom: 20px; }
@@ -38,6 +39,7 @@
     
     <h1>Mise en œuvre de la Fraiseuse CNC Technodrill 3</h1>
     <h3>Projet S5 - IUT de Cachan | Réalisation d'un tutoriel et fabrication PCB</h3>
+    <p class="responsable">Responsable : Denis PENARD</p>
 
     <div class="tech-tags">
         <span>CFAO</span>
@@ -48,44 +50,44 @@
         <span>Maintenance industrielle</span>
     </div>
 
-    <p>Ce projet de fin d'études à l'IUT de Cachan visait l'appropriation complète de la fraiseuse CNC Technodrill 3. L'objectif était de transformer un schéma théorique en un circuit imprimé (PCB) fonctionnel répondant aux standards industriels, tout en rédigeant un tutoriel complet pour former les futures promotions d'étudiants.</p>
+    <p>Ce projet de fin d'études à l'IUT de Cachan visait l'appropriation complète de la fraiseuse CNC Technodrill 3[cite: 1, 15]. L'objectif était de transformer un schéma théorique en un circuit imprimé (PCB) fonctionnel répondant aux standards industriels, tout en rédigeant un tutoriel complet pour former les futures promotions d'étudiants[cite: 16, 40, 41].</p>
 
     <img src="technodrill.jpg" alt="Fraiseuse CNC Technodrill 3" class="project-image">
-    <span class="image-caption">La machine Technodrill 3 : Fraiseuse à commande numérique de précision utilisée pour le prototypage rapide de circuits imprimés.</span>
+    <span class="image-caption">La machine Technodrill 3 : Fraiseuse à commande numérique de précision utilisée pour le prototypage rapide de circuits imprimés[cite: 10, 25, 70].</span>
 
     <h2>1. Environnement Logiciel et Pilotage Numérique</h2>
     
     <h3>1.1 GALAAD 3 : Le cœur du pilotage</h3>
-    <p><strong>GALAAD 3</strong> est le logiciel central qui permet de piloter directement la machine et de réaliser l'usinage. Il interprète les trajectoires et réalise les mouvements G-code en temps réel sans logiciel intermédiaire. </p>
+    <p><strong>GALAAD 3</strong> est le logiciel central qui permet de piloter directement la machine et de réaliser l'usinage[cite: 30, 148]. Il interprète les trajectoires et réalise les mouvements G-code en temps réel sans logiciel intermédiaire[cite: 156, 157].</p>
     <ul>
-        <li><strong>Gestion de l'outillage :</strong> Permet de configurer la bibliothèque d'outils, de choisir précisément quelle fraise (gravure/détourage) ou quel foret (perçage) utiliser.</li>
-        <li><strong>Réglages physiques :</strong> Il gère la mise au point de l'axe Z (hauteur de l'outil), les procédures de surfaçage du plateau martyr pour garantir la planéité, et l'activation de la caméra intégrée pour le centrage.</li>
-        <li><strong>Conception :</strong> Offre la possibilité de créer nos propres croquis de gravure directement dans l'interface pour des pièces de test simples.</li>
+        <li><strong>Gestion de l'outillage :</strong> Permet de configurer la bibliothèque d'outils, de choisir précisément quelle fraise (gravure/détourage) ou quel foret (perçage) utiliser[cite: 171, 172].</li>
+        <li><strong>Réglages physiques :</strong> Il gère la mise au point de l'axe Z (hauteur de l'outil), les procédures de surfaçage du plateau martyr pour garantir la planéité, et l'activation de la caméra intégrée pour le centrage[cite: 261, 394, 397].</li>
+        <li><strong>Conception :</strong> Offre la possibilité de créer nos propres croquis de gravure directement dans l'interface pour des pièces de test simples[cite: 221, 224].</li>
     </ul>
 
     <h3>1.2 Percival : L'interface de pré-traitement CFAO</h3>
-    <p><strong>Percival</strong> agit exclusivement comme un intermédiaire pour préparer les fichiers complexes avant l'usinage final sous GALAAD. Il sert à importer les fichiers <strong>Gerber</strong> et autres formats externes provenant de logiciels de CAO comme <strong>KiCad</strong>.</p>
+    <p><strong>Percival</strong> agit exclusivement comme un intermédiaire pour préparer les fichiers complexes avant l'usinage final sous GALAAD[cite: 31, 135]. Il sert à importer les fichiers <strong>Gerber</strong> et autres formats externes provenant de logiciels de CAO comme <strong>KiCad</strong>[cite: 32, 138].</p>
     <ul>
-        <li><strong>Automatisation :</strong> À partir des fichiers importés, Percival dessine automatiquement les pistes d'isolation et génère les trajectoires de perçage.</li>
-        <li><strong>Évolutivité du projet :</strong> Il permet de combiner toutes les manipulations nécessaires (ajout de trous de fixation, centrage miroir pour le double-face) dans un seul projet d'usinage cohérent.</li>
-        <li><strong>Optimisation :</strong> Il facilite l'enchaînement des étapes sans intervention humaine constante pour le calcul des isolations, préparant ainsi le transfert final des données vers GALAAD.</li>
+        <li><strong>Automatisation :</strong> À partir des fichiers importés, Percival dessine automatiquement les pistes d'isolation et génère les trajectoires de perçage[cite: 144, 333, 334].</li>
+        <li><strong>Évolutivité du projet :</strong> Il permet de combiner toutes les manipulations nécessaires (ajout de trous de fixation, centrage miroir pour le double-face) dans un seul projet d'usinage cohérent[cite: 337, 338, 339].</li>
+        <li><strong>Optimisation :</strong> Il facilite l'enchaînement des étapes sans intervention humaine constante pour le calcul des isolations, préparant ainsi le transfert final des données vers GALAAD[cite: 342, 343].</li>
     </ul>
 
     <div class="gallery">
         <img src="gaalad.jpg" alt="Interface GALAAD 3">
         <img src="percival.jpg" alt="Interface Percival">
     </div>
-    <span class="image-caption">À gauche : Interface de pilotage GALAAD 3 lors du paramétrage des outils. À droite : Traitement des couches PCB et calcul des isolations sous Percival.</span>
+    <span class="image-caption">À gauche : Interface de pilotage GALAAD 3 lors du paramétrage des outils[cite: 150, 177]. À droite : Traitement des couches PCB et calcul des isolations sous Percival[cite: 344, 349].</span>
 
     <h2>2. Réalisation et Exécution Physique</h2>
     
-    <p>Une fois la chaîne logicielle validée, nous passons à l'exécution physique. Cette étape demande une rigueur absolue : fixation de la plaque de cuivre sur le plateau martyr, réglage micrométrique du zéro machine et surveillance constante de la vitesse de broche (jusqu'à 24 000 tr/min) pour éviter toute casse d'outil ou arrachement du cuivre.</p>
+    <p>Une fois la chaîne logicielle validée, nous passons à l'exécution physique[cite: 46, 199]. Cette étape demande une rigueur absolue : fixation de la plaque de cuivre sur le plateau martyr [cite: 128], réglage micrométrique du zéro machine [cite: 268, 271] et surveillance constante de la vitesse de broche (jusqu'à 24 000 tr/min) pour éviter toute casse d'outil ou arrachement du cuivre[cite: 77, 78, 201].</p>
 
     <img src="usinage.jpg" alt="Usinage d'un PCB sur la Technodrill 3" class="project-image">
-    <span class="image-caption">Exécution physique : Phase de gravure d'un PCB double-face fixée sur le plateau martyr, montrant la précision du détourage des pistes.</span>
+    <span class="image-caption">Exécution physique : Phase de gravure d'un PCB double-face fixée sur le plateau martyr, montrant la précision du détourage des pistes[cite: 375, 404, 406].</span>
 
     <h2>Conclusion</h2>
-    <p>Ce projet a validé l'aptitude de la Technodrill 3 à produire des cartes complexes pour l'IUT. En équilibrant maîtrise logicielle et rigueur manuelle, nous avons produit une base solide pour que les prochaines promotions puissent obtenir des circuits concrets et fonctionnels pour leurs projets.</p>
+    <p>Ce projet a validé l'aptitude de la Technodrill 3 à produire des cartes complexes pour l'IUT[cite: 419, 427]. En équilibrant maîtrise logicielle et rigueur manuelle, nous avons produit une base solide pour que les prochaines promotions puissent obtenir des circuits concrets et fonctionnels pour leurs projets[cite: 489, 490].</p>
 
 </div>
 
