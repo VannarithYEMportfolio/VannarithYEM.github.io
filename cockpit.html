@@ -2,32 +2,66 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Projet | Cockpit Hélicoptère</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Cockpit | Simulateur de Vol</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; padding: 40px; max-width: 900px; margin: auto; background: #f4f7f6; }
-        .back { text-decoration: none; color: #3498db; font-weight: bold; }
-        .content { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 20px; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        .tech-tags span { background: #9b59b6; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; margin-right: 5px; }
+        :root { --primary: #2c3e50; --secondary: #f39c12; /* Orange pour l'aviation */ --bg: #f4f7f6; --text: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 40px 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        
+        a.back-btn { text-decoration: none; color: #3498db; font-weight: bold; display: inline-block; margin-bottom: 30px; transition: translateX 0.2s; }
+        a.back-btn:hover { transform: translateX(-5px); }
+        
+        h1 { color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 15px; margin-bottom: 30px; }
+        h2 { color: var(--primary); margin-top: 40px; font-size: 1.5rem; }
+        h3 { color: #7f8c8d; font-size: 1.1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; }
+        
+        p { margin-bottom: 20px; text-align: justify; }
+        ul { margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+        
+        .tech-tags { margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .tech-tags span { background: #fff3e0; color: #e67e22; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
+        
+        .project-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 20px 0 30px 0; border: 1px solid #eee; }
+        .image-caption { text-align: center; font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-top: -20px; margin-bottom: 30px; display: block; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back">← Retour au portfolio</a>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← Retour au Portfolio</a>
     
-    <div class="content">
-        <h1>Cockpit d'hélicoptère pour simulateur de vol</h1>
-        <div class="tech-tags">
-            <span>STM32</span> <span>KiCad</span> <span>C++ Embarqué</span> <span>Modélisation Électronique</span>
-        </div>
+    <h1>Conception d'un Cockpit de Simulateur de Vol</h1>
+    <h3>Projet S3 & S4 - IUT de Cachan | Responsable : Denis PENARD</h3>
 
-        <p>Ce projet consistait à réaliser l'interface électronique d'un cockpit destiné à un simulateur de vol professionnel[cite: 16].</p>
-
-        <h2>Réalisations techniques</h2>
-        <ul>
-            <li><strong>Conception électronique :</strong> Réalisation complète du schéma et du routage de la carte de contrôle sous KiCad[cite: 17].</li>
-            <li><strong>Programmation embarquée :</strong> Développement du logiciel de gestion des entrées/sorties sous STM32CubeIDE sur microcontrôleur ARM[cite: 18].</li>
-            <li><strong>Gestion des périphériques :</strong> Interfaçage des instruments de bord et des commandes physiques pour une réactivité temps réel.</li>
-        </ul>
+    <div class="tech-tags">
+        <span>KiCad (CAO)</span>
+        <span>Électronique Embarquée</span>
+        <span>Simulateur de vol</span>
+        <span>Interface Homme-Machine</span>
+        <span>Routage PCB</span>
     </div>
+
+    <p>Ce projet réalisé sur deux semestres consistait à concevoir et réaliser une interface matérielle (panel de contrôle) pour un simulateur de vol[cite: 1, 2]. L'objectif était de créer une carte électronique capable de gérer divers commutateurs et indicateurs pour piloter les fonctions d'un hélicoptère ou d'un avion léger de manière réaliste[cite: 3, 5].</p>
+
+    <img src="cockpit.jpg" alt="Rendu 3D du panel cockpit" class="project-image">
+    <span class="image-caption">Vue du panel de contrôle finalisé, intégrant les interrupteurs de commande et le rétroéclairage.</span>
+
+    <h2>1. Conception Électronique (CAO sous KiCad)</h2>
+    <p>La phase critique a été la conception du circuit imprimé. J'ai utilisé <strong>KiCad</strong> pour schématiser l'ensemble des connexions nécessaires entre le microcontrôleur et les périphériques[cite: 11, 14].</p>
+    <ul>
+        <li><strong>Gestion des Entrées :</strong> Implémentation de boutons poussoirs et d'interrupteurs à levier pour les commandes de vol (batterie, alternateur, lumières de navigation)[cite: 10, 16].</li>
+        <li><strong>Rétroéclairage :</strong> Intégration de LEDs pour permettre une utilisation du panel en conditions de faible luminosité, simulant un cockpit réel[cite: 18].</li>
+        <li><strong>Optimisation du Routage :</strong> Création d'un PCB double face avec un plan de masse optimisé pour limiter les parasites électromagnétiques et assurer une transmission fiable des signaux[cite: 14].</li>
+    </ul>
+
+    <h2>2. Intégration et Ergonomie</h2>
+    <p>Au-delà de l'électronique, le projet exigeait une réflexion sur l'ergonomie. Le panel a été conçu pour être intuitif pour le pilote[cite: 4, 15]. Chaque commande a été placée selon les standards de l'aviation pour favoriser les réflexes en vol simulé[cite: 5, 23].</p>
+    
+    <p>Ce projet m'a permis de maîtriser le cycle complet de développement d'un produit électronique : de la définition du besoin au routage final, en passant par le choix des composants et les tests de continuité[cite: 25].</p>
+
+</div>
+
 </body>
 </html>
