@@ -23,7 +23,6 @@
         .tech-tags { margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
         .tech-tags span { background: #e1f5fe; color: #0277bd; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
         
-        /* Style des images et de la galerie */
         .project-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 20px 0 30px 0; border: 1px solid #eee; }
         .image-caption { text-align: center; font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-top: -20px; margin-bottom: 30px; display: block; }
         
@@ -33,7 +32,6 @@
 
         .problem-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; border-radius: 8px; margin: 30px 0; }
         .problem-box h4 { color: #856404; margin-top: 0; }
-
     </style>
 </head>
 <body>
@@ -55,36 +53,35 @@
 
     <p>Ce projet majeur de mon stage à la RATP avait pour objectif de concevoir un système de sensibilisation visuel aux risques liés aux décharges électrostatiques (ESD) dans l'atelier de maintenance. J'ai été chargé de développer deux panneaux d'affichage interactifs, capables de mesurer et d'afficher en temps réel la charge statique de différents matériaux (-1000V à +1000V).</p>
 
-    <img src="panneau.jpg" alt="Panneau finalisé RATP AME" class="project-image">
-    <span class="image-caption">Résultat final : Le panneau d'affichage interactif installé sur le mur de l'atelier, montrant le bargraphe à LEDs et le thermomètre d'état.</span>
+    <img src="testpanneau.jpg" alt="Panneau RATP AME en test fonctionnel" class="project-image">
+    <span class="image-caption">Phase de test et calibration : Le panneau est fonctionnel et relié au PC portable, montrant la réactivité du bargraphe à LEDs selon la mesure du capteur.</span>
 
-    <h2>1. Conception et Maîtrise de la chaîne CAO/FAO</h2>
+    <h2>1. Modélisation 3D et FAO (FreeCAD)</h2>
     
-    <p>La première étape a consisté à concevoir l'intégration mécanique de l'électronique dans le panneau. N'ayant pas accès à des logiciels coûteux comme SolidWorks, j'ai utilisé **FreeCAD**, un logiciel de CAO open-source. J'ai modélisé en 3D les supports des bandes LEDs et les plaques de protection en plexiglass.</p>
+    <p>La première étape de réalisation a consisté à concevoir l'intégration mécanique de l'électronique dans le panneau. J'ai modélisé en 3D l'ensemble des pièces sous **FreeCAD**, un logiciel de CAO open-source. J'ai créé les supports des bandes LEDs et les plaques de protection en plexiglass, en utilisant des fonctions booléennes pour concevoir les trous de fixation de manière précise.</p>
     
-    <p>J'ai exporté ces modèles au format STEP pour les fabriquer via une fraiseuse CNC, en assurant une précision micrométrique pour l'alignement des 153 LEDs APA102 du bargraphe.</p>
+    <p>Ces modèles ont été exportés au format STEP pour être fabriqués sur une fraiseuse CNC, garantissant une précision micrométrique pour l'alignement des 153 LEDs APA102 du bargraphe et du thermomètre d'état.</p>
     
     <div class="gallery">
         <img src="20260219_092031.jpg" alt="Conception 3D sur FreeCAD">
-        <img src="20260217_150246.jpg" alt="Câblage de porte palière (exemple de maintenance RATP)">
+        <img src="20260217_150246.jpg" alt="Exemple de câblage industriel de porte palière">
     </div>
-    <span class="image-caption">À gauche : Modélisation 3D de la jauge (thermomètre) sur FreeCAD. À droite : Exemple d'intervention de maintenance complexe sur un système automatisé (portes palières), illustrant la rigueur requise à la RATP.</span>
+    <span class="image-caption">À gauche : Modélisation 3D de la jauge (thermomètre) sur FreeCAD. À droite : Exemple de câblage complexe sur un système automatisé (porte palière RATP Infra), illustrant la rigueur requise.</span>
 
     <h2>2. Traitement des Signaux et Programmation Embarquée</h2>
     
-    <p>Le cœur du système repose sur un microcontrôleur **Arduino Nano** qui fait l'interface entre le capteur industriel et l'affichage. Ma mission a été de :</p>
+    <p>Le cœur du système repose sur un microcontrôleur **Arduino Nano** qui fait l'interface entre le capteur industriel et l'affichage. Ma mission a été de lire le signal analogique (0V-5V) renvoyé par l'amplificateur **Keyence SK-1000**.</p>
     <ul>
-        <li>**Lire le signal analogique** : L'amplificateur Keyence SK-1000 renvoie une tension (0V-5V) proportionnelle à la charge mesurée.</li>
-        <li>**Convertir les données** : J'ai développé un algorithme en C++ pour mapper cette tension (1024 bits) en valeurs de tension statique (-1000V à +1000V) et en index de couleur pour les LEDs.</li>
-        <li>**Gérer l'IHM** : Le code (165 lignes) assure une transition fluide des couleurs du bargraphe selon les seuils de tension détectés.</li>
+        <li>**Algorithme C++** : J'ai développé un code (165 lignes) pour mapper la tension analogique lue (1024 bits) en valeurs de charge électrostatique (-1000V à +1000V).</li>
+        <li>**Gestion de l'IHM** : Le code pilote les 153 LEDs APA102 avec une transition fluide des couleurs selon les seuils de tension détectés.</li>
     </ul>
 
-    <img src="testpanneau.jpg" alt="Test du panneau et code Arduino" class="project-image">
-    <span class="image-caption">Phase de test et calibration : Le panneau est connecté au PC portable. On distingue à l'écran l'IDE Arduino et le traceur série qui valide la réponse du capteur.</span>
+    <img src="panneau.jpg" alt="Résultat final : Panneau RATP AME assemblé" class="project-image">
+    <span class="image-caption">Résultat final : Le panneau d'affichage interactif assemblé et fonctionnel, illustrant l'intégration de la programmation et du câblage.</span>
 
     <h2>3. Intégration Électronique et Reverse-Engineering</h2>
     
-    <p>Pour l'alimentation, j'ai dû réaliser du **Reverse-Engineering** sur la carte d'alimentation d'un ancien panneau afin de reproduire un circuit fiable pour mon projet. J'ai fabriqué un PCB double-face intégrant une alimentation à découpage pour convertir le 230V secteur en tensions de service.</p>
+    <p>N'ayant pas de schéma électrique à disposition, j'ai réalisé du **Reverse-Engineering** sur la carte d'alimentation d'un ancien panneau afin de reproduire un circuit fiable pour mon projet. J'ai fabriqué un PCB double-face intégrant une alimentation à découpage pour convertir le 230V secteur en tensions de service.</p>
     
     <p>Le câblage final a été un défi de taille, notamment pour relier les 153 LEDs APA102. J'ai plié les bandes pour gagner de l'espace, étamé chaque pastille et utilisé des gaines thermo-rétractables pour garantir l'isolation et la fiabilité du système.</p>
     
