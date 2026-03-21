@@ -2,26 +2,92 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Projet S5 | Technodrill 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet S5 | Fraiseuse CNC Technodrill 3</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; padding: 40px; max-width: 900px; margin: auto; background: #f4f7f6; }
-        .back { text-decoration: none; color: #3498db; font-weight: bold; }
-        .content { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 20px; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        h2 { color: #2c3e50; margin-top: 30px; }
-        .tech-tags span { background: #3498db; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8em; margin-right: 5px; }
-        .alert { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; }
-        img { max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #ddd; }
+        :root { --primary: #2c3e50; --secondary: #e74c3c; /* Rouge pour Technodrill */ --bg: #f4f7f6; --text: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 40px 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        
+        a.back-btn { text-decoration: none; color: #3498db; font-weight: bold; display: inline-block; margin-bottom: 30px; transition: translateX 0.2s; }
+        a.back-btn:hover { transform: translateX(-5px); }
+        
+        h1 { color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 15px; margin-bottom: 30px; }
+        h2 { color: var(--primary); margin-top: 40px; font-size: 1.5rem; }
+        h3 { color: #7f8c8d; font-size: 1.1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; }
+        
+        p { margin-bottom: 20px; text-align: justify; }
+        ul { margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+        
+        .tech-tags { margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .tech-tags span { background: #fdecea; color: #c0392b; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
+        
+        .project-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 20px 0 30px 0; border: 1px solid #eee; }
+        .image-caption { text-align: center; font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-top: -20px; margin-bottom: 30px; display: block; }
+        
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
+        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .gallery img:hover { transform: scale(1.03); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back">← Retour au portfolio</a>
-    
-    <div class="content">
-        <h1>Mise en œuvre de la Fraiseuse CNC Technodrill 3</h1>
-        <div class="tech-tags">
-            <span>CFAO</span> <span>GALAAD 3</span> <span>Percival</span> <span>KiCad</span> <span>Maintenance Industrielle</span>
-        </div>
 
-        <h2>Objectifs du projet</h2>
-        <p>Ce projet de 5ème semestre visait l'appropriation complète de la fraiseuse CNC Technodrill 3 pour le prototypage électronique à l'IUT de Cachan. L'objectif final était de formaliser cette expertise dans un tutoriel complet destiné aux futurs étudiants et de valider la machine par la fabrication d'une carte PCB fonctionnelle.</p>
+<div class="container">
+    <a href="index.html" class="back-btn">← Retour au Portfolio</a>
+    
+    <h1>Mise en œuvre de la Fraiseuse CNC Technodrill 3</h1>
+    <h3>Projet S5 - IUT de Cachan | Réalisation d'un tutoriel et fabrication PCB</h3>
+
+    <div class="tech-tags">
+        <span>CFAO</span>
+        <span>GALAAD 3</span>
+        <span>Percival</span>
+        <span>KiCad</span>
+        <span>Usinage de précision</span>
+        <span>Maintenance industrielle</span>
+    </div>
+
+    <p>Ce projet de fin d'études à l'IUT de Cachan visait l'appropriation complète de la fraiseuse CNC Technodrill 3. L'objectif était de transformer un schéma théorique en un circuit imprimé (PCB) fonctionnel répondant aux standards industriels, tout en rédigeant un tutoriel complet pour former les futures promotions d'étudiants.</p>
+
+    <img src="technodrill.jpg" alt="Fraiseuse CNC Technodrill 3" class="project-image">
+    <span class="image-caption">La machine Technodrill 3 : Fraiseuse à commande numérique de précision utilisée pour le prototypage rapide de circuits imprimés.</span>
+
+    <h2>1. Environnement Logiciel et Pilotage Numérique</h2>
+    
+    <h3>1.1 GALAAD 3 : Le cœur du pilotage</h3>
+    <p><strong>GALAAD 3</strong> est le logiciel central qui permet de piloter directement la machine et de réaliser l'usinage. Il interprète les trajectoires et réalise les mouvements G-code en temps réel sans logiciel intermédiaire. </p>
+    <ul>
+        <li><strong>Gestion de l'outillage :</strong> Permet de configurer la bibliothèque d'outils, de choisir précisément quelle fraise (gravure/détourage) ou quel foret (perçage) utiliser.</li>
+        <li><strong>Réglages physiques :</strong> Il gère la mise au point de l'axe Z (hauteur de l'outil), les procédures de surfaçage du plateau martyr pour garantir la planéité, et l'activation de la caméra intégrée pour le centrage.</li>
+        <li><strong>Conception :</strong> Offre la possibilité de créer nos propres croquis de gravure directement dans l'interface pour des pièces de test simples.</li>
+    </ul>
+
+    <h3>1.2 Percival : L'interface de pré-traitement CFAO</h3>
+    <p><strong>Percival</strong> agit exclusivement comme un intermédiaire pour préparer les fichiers complexes avant l'usinage final sous GALAAD. Il sert à importer les fichiers <strong>Gerber</strong> et autres formats externes provenant de logiciels de CAO comme <strong>KiCad</strong>.</p>
+    <ul>
+        <li><strong>Automatisation :</strong> À partir des fichiers importés, Percival dessine automatiquement les pistes d'isolation et génère les trajectoires de perçage.</li>
+        <li><strong>Évolutivité du projet :</strong> Il permet de combiner toutes les manipulations nécessaires (ajout de trous de fixation, centrage miroir pour le double-face) dans un seul projet d'usinage cohérent.</li>
+        <li><strong>Optimisation :</strong> Il facilite l'enchaînement des étapes sans intervention humaine constante pour le calcul des isolations, préparant ainsi le transfert final des données vers GALAAD.</li>
+    </ul>
+
+    <div class="gallery">
+        <img src="gaalad.jpg" alt="Interface GALAAD 3">
+        <img src="percival.jpg" alt="Interface Percival">
+    </div>
+    <span class="image-caption">À gauche : Interface de pilotage GALAAD 3 lors du paramétrage des outils. À droite : Traitement des couches PCB et calcul des isolations sous Percival.</span>
+
+    <h2>2. Réalisation et Exécution Physique</h2>
+    
+    <p>Une fois la chaîne logicielle validée, nous passons à l'exécution physique. Cette étape demande une rigueur absolue : fixation de la plaque de cuivre sur le plateau martyr, réglage micrométrique du zéro machine et surveillance constante de la vitesse de broche (jusqu'à 24 000 tr/min) pour éviter toute casse d'outil ou arrachement du cuivre.</p>
+
+    <img src="usinage.jpg" alt="Usinage d'un PCB sur la Technodrill 3" class="project-image">
+    <span class="image-caption">Exécution physique : Phase de gravure d'un PCB double-face fixée sur le plateau martyr, montrant la précision du détourage des pistes.</span>
+
+    <h2>Conclusion</h2>
+    <p>Ce projet a validé l'aptitude de la Technodrill 3 à produire des cartes complexes pour l'IUT. En équilibrant maîtrise logicielle et rigueur manuelle, nous avons produit une base solide pour que les prochaines promotions puissent obtenir des circuits concrets et fonctionnels pour leurs projets.</p>
+
+</div>
+
+</body>
+</html>
