@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Portfolio | Vannarith YEM</title>
     <style>
         :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f4f7f6; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 40px 20px; }
         .container { max-width: 1000px; margin: auto; }
-        h1 { text-align: center; color: var(--primary); }
+        
+        .header-box { text-align: center; margin-bottom: 40px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: var(--primary); margin-top: 30px; }
         
         .grid { 
             display: grid; 
@@ -39,76 +42,70 @@
         .skill-group { margin-bottom: 20px; }
         .skill-name { font-weight: bold; display: flex; justify-content: space-between; margin-bottom: 5px; }
         .progress-bar { background: #eee; border-radius: 10px; height: 12px; overflow: hidden; }
-        .progress-fill { background: var(--secondary); height: 100%; border-radius: 10px; transition: width 1s ease-in-out; }
-        
-        .header-box { text-align: center; margin-bottom: 40px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .progress-fill { background: var(--secondary); height: 100%; border-radius: 10px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header-box">
-        <p>🎓 <strong>Apprenti ingénieur en Électronique et Informatique à Polytech Sorbonne</strong></p>
-        <p>À la recherche d'un contrat d'apprentissage de 3 ans pour accompagner ma formation</p>
-        <p>📧 <a href="mailto:VannarithYem@outlook.fr" style="color: var(--secondary); text-decoration: none;">VannarithYem@outlook.fr</a></p>
+        <p>🎓 <strong>Apprenti ingénieur en Électronique et Informatique à Polytech Sorbonne</strong> [cite: 11]</p>
+        <p>À la recherche d'un contrat d'apprentissage de 3 ans [cite: 7]</p>
+        <p>📧 <a href="mailto:VannarithYem@outlook.fr" style="color: var(--secondary); text-decoration: none;">VannarithYem@outlook.fr</a> [cite: 3]</p>
     </div>
 
-    <h1>Vannarith YEM - Portfolio</h1>
+    <h1>Vannarith YEM - Portfolio Projets</h1>
 
     <div class="skills-section">
-        <h2 style="text-align: center; color: var(--primary);">Mes Compétences Techniques</h2>
+        <h2 style="text-align: center; color: var(--primary);">Compétences Clés</h2>
         <div class="skill-group">
             <div class="skill-name"><span>Programmation (C, C++, Python)</span><span>85%</span></div>
             <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
         </div>
         <div class="skill-group">
-            <div class="skill-name"><span>Conception PCB (KiCad, Altium)</span><span>90%</span></div>
+            <div class="skill-name"><span>Conception PCB & CFAO (KiCad, GALAAD)</span><span>90%</span></div>
             <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
         </div>
         <div class="skill-group">
-            <div class="skill-name"><span>Systèmes Embarqués (STM32, Arduino, RTOS)</span><span>80%</span></div>
+            <div class="skill-name"><span>Systèmes Embarqués (STM32, Arduino)</span><span>80%</span></div>
             <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
-        </div>
-        <div class="skill-group">
-            <div class="skill-name"><span>Automatisme & Contrôle (Grafcet, PLC)</span><span>75%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
         </div>
     </div>
 
     <div class="grid">
         <a href="ratp-ame.html" class="card">
-            <span class="type">Stage Pro</span>
-            <h2>RATP AME</h2>
-            <p>Modernisation de carte de test ferroviaire et affichage d'énergie statique.</p>
-            <span class="btn">En savoir plus →</span>
+            <span class="type">Stage - RATP AME</span>
+            <h2>Affichage Énergie Statique</h2>
+            <p>Développement d'un système de mesure ESD avec capteur KEYENCE et Arduino[cite: 39, 40].</p>
+            <span class="btn">Détails techniques →</span>
+        </a>
+
+        <a href="technodrill.html" class="card">
+            <span class="type">Projet S5 - IUT Cachan</span>
+            <h2>Fraiseuse CNC Technodrill 3</h2>
+            <p>Mise en œuvre d'une chaîne CFAO complète et rédaction d'un tutoriel de formation[cite: 74, 75, 83].</p>
+            <span class="btn">Détails techniques →</span>
         </a>
 
         <a href="ratp-infra.html" class="card">
-            <span class="type">Stage Pro</span>
-            <h2>RATP INFRASTRUCTURE</h2>
-            <p>Maintenance des façades de quai et systèmes automatisés (lignes 1, 4, 13, 14).</p>
-            <span class="btn">En savoir plus →</span>
+            <span class="type">Stage - RATP INFRA</span>
+            <h2>Portes Palières Ligne 13</h2>
+            <p>Maintenance des systèmes de commande COPP2 et façades de quai[cite: 34, 35, 36].</p>
+            <span class="btn">Détails techniques →</span>
         </a>
 
         <a href="cockpit.html" class="card">
             <span class="type">Projet Académique</span>
             <h2>Cockpit Hélicoptère</h2>
-            <p>Conception électronique (KiCad) et programmation STM32 pour simulateur.</p>
-            <span class="btn">En savoir plus →</span>
-        </a>
-
-        <a href="diamant-detail.html" class="card">
-            <span class="type">Réalisation</span>
-            <h2>Projet Diamant</h2>
-            <p>Détails et conception visuelle du projet présenté précédemment.</p>
-            <span class="btn">En savoir plus →</span>
+            <p>Conception d'une carte électronique sous KiCad pour simulateur de vol[cite: 16, 17].</p>
+            <span class="btn">Détails techniques →</span>
         </a>
 
         <a href="robot.html" class="card">
             <span class="type">Projet Académique</span>
             <h2>Robot Gamel Trophy</h2>
-            <p>Conception de PCB et programmation moteur pour robot suiveur de ligne.</p>
-            <span class="btn">En savoir plus →</span>
+            <p>Fabrication de PCB et programmation de robot suiveur de ligne[cite: 25, 26, 27].</p>
+            <span class="btn">Détails techniques →</span>
         </a>
     </div>
 </div>
