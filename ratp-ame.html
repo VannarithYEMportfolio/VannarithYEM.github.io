@@ -1,19 +1,108 @@
-<div class="content">
-    <h1>Affichage Énergie Statique - RATP AME</h1>
-    <p><em>Projet de sensibilisation aux risques ESD (Electostatic Discharge)</em></p>
-    
-    <h3>🚀 Défis Techniques</h3>
-    <ul>
-        <li>Interfaçage d'un capteur industriel <strong>Keyence</strong> avec un microcontrôleur.</li>
-        <li>Programmation d'un bargraphe de 153 LEDs (APA102) avec gestion de seuils de tension.</li>
-        <li>Modélisation 3D de supports mécaniques sur <strong>FreeCAD</strong>.</li>
-    </ul>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet RATP AME | Affichage ESD Keyence</title>
+    <style>
+        :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f4f7f6; --text: #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 40px 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        
+        a.back-btn { text-decoration: none; color: var(--secondary); font-weight: bold; display: inline-block; margin-bottom: 30px; transition: translateX 0.2s; }
+        a.back-btn:hover { transform: translateX(-5px); }
+        
+        h1 { color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 15px; margin-bottom: 30px; }
+        h2 { color: var(--primary); margin-top: 40px; font-size: 1.5rem; }
+        h3 { color: #7f8c8d; font-size: 1.1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; }
+        
+        p { margin-bottom: 20px; text-align: justify; }
+        ul { margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+        
+        .tech-tags { margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .tech-tags span { background: #e1f5fe; color: #0277bd; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
+        
+        /* Style des images et de la galerie */
+        .project-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 20px 0 30px 0; border: 1px solid #eee; }
+        .image-caption { text-align: center; font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-top: -20px; margin-bottom: 30px; display: block; }
+        
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
+        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .gallery img:hover { transform: scale(1.03); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
 
-    <h3>🛠️ Compétences validées</h3>
+        .problem-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 20px; border-radius: 8px; margin: 30px 0; }
+        .problem-box h4 { color: #856404; margin-top: 0; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← Retour au Portfolio Projets</a>
+    
+    <h1>Développement d'un Affichage Énergie Statique interactif</h1>
+    <h3>Stage RATP AME (Atelier de Maintenance Électronique) - Service EK1</h3>
+
     <div class="tech-tags">
-        <span>C++ (Arduino)</span> <span>CAO 3D</span> <span>Signaux Analogiques</span> <span>Usinage CNC</span>
+        <span>Arduino (C++)</span>
+        <span>CAO FreeCAD</span>
+        <span>Conception PCB</span>
+        <span>Capteur Keyence SK-050</span>
+        <span>Traitement Analogique</span>
+        <span>Câblage Industriel</span>
     </div>
 
-    <h3>💡 Problématique résolue</h3>
-    <p>Lors des tests, j'ai dû diagnostiquer la casse d'une diode Schottky sur l'Arduino. J'ai recalculé les charges et mis en place une <strong>alimentation séparée</strong> pour sécuriser le système, remplaçant la diode par une BAT42.</p>
+    <p>Ce projet majeur de mon stage à la RATP avait pour objectif de concevoir un système de sensibilisation visuel aux risques liés aux décharges électrostatiques (ESD) dans l'atelier de maintenance. J'ai été chargé de développer deux panneaux d'affichage interactifs, capables de mesurer et d'afficher en temps réel la charge statique de différents matériaux (-1000V à +1000V).</p>
+
+    <img src="panneau.jpg" alt="Panneau finalisé RATP AME" class="project-image">
+    <span class="image-caption">Résultat final : Le panneau d'affichage interactif installé sur le mur de l'atelier, montrant le bargraphe à LEDs et le thermomètre d'état.</span>
+
+    <h2>1. Conception et Maîtrise de la chaîne CAO/FAO</h2>
+    
+    <p>La première étape a consisté à concevoir l'intégration mécanique de l'électronique dans le panneau. N'ayant pas accès à des logiciels coûteux comme SolidWorks, j'ai utilisé **FreeCAD**, un logiciel de CAO open-source. J'ai modélisé en 3D les supports des bandes LEDs et les plaques de protection en plexiglass.</p>
+    
+    <p>J'ai exporté ces modèles au format STEP pour les fabriquer via une fraiseuse CNC, en assurant une précision micrométrique pour l'alignement des 153 LEDs APA102 du bargraphe.</p>
+    
+    <div class="gallery">
+        <img src="20260219_092031.jpg" alt="Conception 3D sur FreeCAD">
+        <img src="20260217_150246.jpg" alt="Câblage de porte palière (exemple de maintenance RATP)">
+    </div>
+    <span class="image-caption">À gauche : Modélisation 3D de la jauge (thermomètre) sur FreeCAD. À droite : Exemple d'intervention de maintenance complexe sur un système automatisé (portes palières), illustrant la rigueur requise à la RATP.</span>
+
+    <h2>2. Traitement des Signaux et Programmation Embarquée</h2>
+    
+    <p>Le cœur du système repose sur un microcontrôleur **Arduino Nano** qui fait l'interface entre le capteur industriel et l'affichage. Ma mission a été de :</p>
+    <ul>
+        <li>**Lire le signal analogique** : L'amplificateur Keyence SK-1000 renvoie une tension (0V-5V) proportionnelle à la charge mesurée.</li>
+        <li>**Convertir les données** : J'ai développé un algorithme en C++ pour mapper cette tension (1024 bits) en valeurs de tension statique (-1000V à +1000V) et en index de couleur pour les LEDs.</li>
+        <li>**Gérer l'IHM** : Le code (165 lignes) assure une transition fluide des couleurs du bargraphe selon les seuils de tension détectés.</li>
+    </ul>
+
+    <img src="testpanneau.jpg" alt="Test du panneau et code Arduino" class="project-image">
+    <span class="image-caption">Phase de test et calibration : Le panneau est connecté au PC portable. On distingue à l'écran l'IDE Arduino et le traceur série qui valide la réponse du capteur.</span>
+
+    <h2>3. Intégration Électronique et Reverse-Engineering</h2>
+    
+    <p>Pour l'alimentation, j'ai dû réaliser du **Reverse-Engineering** sur la carte d'alimentation d'un ancien panneau afin de reproduire un circuit fiable pour mon projet. J'ai fabriqué un PCB double-face intégrant une alimentation à découpage pour convertir le 230V secteur en tensions de service.</p>
+    
+    <p>Le câblage final a été un défi de taille, notamment pour relier les 153 LEDs APA102. J'ai plié les bandes pour gagner de l'espace, étamé chaque pastille et utilisé des gaines thermo-rétractables pour garantir l'isolation et la fiabilité du système.</p>
+    
+    <div class="gallery">
+        <img src="cartePCB.jpg" alt="Fabrication du PCB">
+        <img src="arrieredupanneau.jpg" alt="Arrière du panneau câblé">
+    </div>
+    <span class="image-caption">À gauche : Fabrication du PCB d'alimentation. À droite : Vue arrière du panneau finalisé, montrant la densité et la propreté du câblage industriel.</span>
+
+    <div class="problem-box">
+        <h4>💡 Résolution d'un problème technique (Diode Schottky)</h4>
+        <p>Lors des tests, j'ai diagnostiqué la casse d'une diode Schottky de l'Arduino, causée par l'appel de courant des 153 LEDs. J'ai résolu ce problème en remplaçant la diode et en mettant en place une <strong>alimentation séparée</strong> pour les LEDs, sécurisant ainsi le microcontrôleur.</p>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>Ce projet complet, de la CAO à l'intégration finale, a validé mes compétences en informatique industrielle, en électronique de puissance et en fabrication mécanique. Il a été très apprécié par l'unité EK1 pour son utilité concrète dans la sensibilisation aux risques ESD.</p>
+
 </div>
+
+</body>
+</html>
