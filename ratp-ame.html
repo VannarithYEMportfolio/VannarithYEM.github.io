@@ -58,7 +58,7 @@
 
     <h2>1. Modélisation 3D et FAO (FreeCAD)</h2>
     
-    <p>La première étape de réalisation a consisté à concevoir l'intégration mécanique de l'électronique dans le panneau. J'ai modélisé en 3D l'ensemble des pièces sous FreeCAD, un logiciel de CAO open-source. J'ai créé les supports des bandes LEDs et les plaques de protection en plexiglass, en utilisant des fonctions booléennes pour concevoir les trous de fixation de manière précise.</p>
+    <p>La première étape de réalisation a consisté à concevoir l'intégration mécanique de l'électronique dans le panneau. J'ai modélisé en 3D l'ensemble des pièces sous <strong>FreeCAD</strong>, un logiciel de CAO open-source. J'ai créé les supports des bandes LEDs et les plaques de protection en plexiglass, en utilisant des fonctions booléennes pour concevoir les trous de fixation de manière précise.</p>
     
     <p>Ces modèles ont été exportés au format STEP pour être fabriqués sur une fraiseuse CNC, garantissant une précision micrométrique pour l'alignement des 153 LEDs APA102 du bargraphe et du thermomètre d'état.</p>
     
@@ -70,10 +70,10 @@
 
     <h2>2. Traitement des Signaux et Programmation Embarquée</h2>
     
-    <p>Le cœur du système repose sur un microcontrôleur Arduino Nano qui fait l'interface entre le capteur industriel et l'affichage. Ma mission a été de lire le signal analogique (0V-5V) renvoyé par l'amplificateur Keyence SK-1000.</p>
+    <p>Le cœur du système repose sur un microcontrôleur <strong>Arduino Nano</strong> qui fait l'interface entre le capteur industriel et l'affichage. Ma mission a été de lire le signal analogique (0V-5V) renvoyé par l'amplificateur <strong>Keyence SK-1000</strong>.</p>
     <ul>
-        <li>**Algorithme C++** : J'ai développé un code (165 lignes) pour mapper la tension analogique lue (1024 bits) en valeurs de charge électrostatique (-1000V à +1000V).</li>
-        <li>**Gestion de l'IHM** : Le code pilote les 153 LEDs APA102 avec une transition fluide des couleurs selon les seuils de tension détectés.</li>
+        <li><strong>Algorithme C++</strong> : J'ai développé un code (165 lignes) pour mapper la tension analogique lue (1024 bits) en valeurs de charge électrostatique (-1000V à +1000V).</li>
+        <li><strong>Gestion de l'IHM</strong> : Le code pilote les 153 LEDs APA102 avec une transition fluide des couleurs selon les seuils de tension détectés.</li>
     </ul>
 
     <img src="panneau.jpg" alt="Résultat final : Panneau RATP AME assemblé" class="project-image">
@@ -81,7 +81,7 @@
 
     <h2>3. Intégration Électronique et Reverse-Engineering</h2>
     
-    <p>N'ayant pas de schéma électrique à disposition, j'ai réalisé du Reverse-Engineering sur la carte d'alimentation d'un ancien panneau afin de reproduire un circuit fiable pour mon projet. J'ai fabriqué un PCB double-face intégrant une alimentation à découpage pour convertir le 230V secteur en tensions de service.</p>
+    <p>N'ayant pas de schéma électrique à disposition, j'ai réalisé du <strong>Reverse-Engineering</strong> sur la carte d'alimentation d'un ancien panneau afin de reproduire un circuit fiable pour mon projet. J'ai fabriqué un PCB double-face intégrant une alimentation à découpage pour convertir le 230V secteur en tensions de service.</p>
     
     <p>Le câblage final a été un défi de taille, notamment pour relier les 153 LEDs APA102. J'ai plié les bandes pour gagner de l'espace, étamé chaque pastille et utilisé des gaines thermo-rétractables pour garantir l'isolation et la fiabilité du système.</p>
     
