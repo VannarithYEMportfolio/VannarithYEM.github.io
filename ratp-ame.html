@@ -48,7 +48,7 @@
         <span>CFAO</span>
     </div>
 
-    <p>Ce projet majeur de mon stage à la RATP avait pour objectif de concevoir un système de sensibilisation visuel aux risques liés aux décharges électrostatiques (ESD) dans l'atelier de maintenance. J'ai été chargé de développer deux panneaux d'affichage interactifs, capables de mesurer et d'afficher en temps réel la charge statique de différents matériaux de -2000V à +2000V.</p>
+    <p>Ce projet majeur de mon stage à la RATP avait pour objectif de concevoir un système de sensibilisation visuel aux risques liés aux décharges électrostatiques (ESD) dans l'atelier de maintenance[cite: 8]. J'ai été chargé de développer un panneau d'affichage interactif, capable de mesurer et d'afficher en temps réel la charge statique de différents matériaux de -2000V à +2000V.</p>
 
     <img src="testpanneau.jpg" alt="Panneau RATP AME finalisé avec interface" class="project-image">
     <span class="image-caption">Intégration finale : Le panneau d'affichage interactif finalisé avec son interface visuelle RATP.</span>
@@ -81,7 +81,7 @@
 
     <h2>2. Programmation</h2>
     
-    <p>L'intelligence du système repose sur un <strong>Arduino Nano</strong>. Le pilotage des LEDs s'effectue via les ports <strong>SCK</strong> (Clock) et <strong>MOSI</strong> (Data). Le microcontrôleur reçoit des données depuis le capteur d'énergie statique <strong>KEYENCE</strong> qui envoie une valeur analogique entre 0V et 5V (où 2,5V correspond à une valeur captée de 0V) et la convertit en valeur numérique sur 10 bits via son entrée <strong>A0</strong>.</p>
+    <p>L'intelligence du système repose sur un <strong>Arduino Nano</strong>[cite: 30, 63, 64]. Le pilotage des LEDs s'effectue via les ports <strong>SCK</strong> (Clock) et <strong>MOSI</strong> (Data). Le microcontrôleur reçoit des données depuis le capteur d'énergie statique <strong>KEYENCE</strong> qui envoie une valeur analogique entre 0V et 5V (où 2,5V correspond à une valeur captée de 0V) et la convertit en valeur numérique sur 10 bits via son entrée <strong>A0</strong>.</p>
     
     <p>Le fonctionnement du panneau est réparti en deux modes :</p>
     <ul>
