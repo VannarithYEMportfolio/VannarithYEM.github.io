@@ -14,13 +14,13 @@
         h2 { color: var(--primary); margin-top: 40px; font-size: 1.5rem; }
         h3 { color: #7f8c8d; font-size: 1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 10px; }
         p { margin-bottom: 20px; text-align: justify; }
+        ul { margin-bottom: 20px; }
         .tech-tags { margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         .tech-tags span { background: #e8f8f5; color: #27ae60; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
         .project-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 20px 0 30px 0; border: 1px solid #eee; }
         .image-caption { text-align: center; font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-top: -20px; margin-bottom: 30px; display: block; }
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
         .gallery img { width: 100%; height: auto; border-radius: 8px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .gallery img:hover { transform: scale(1.03); }
     </style>
 </head>
 <body>
@@ -32,18 +32,22 @@
         <span>KiCad (CAO)</span> <span>C (Mbed)</span> <span>Analogique</span> <span>Robotique</span>
     </div>
     <h2>Introduction</h2>
-    <p>Conception d'un robot autonome suiveur de ligne dans une gamelle.</p>
+    <p>La <strong>Gamel Trophy</strong> est une compétition emblématique de l'IUT de Cachan qui oppose les étudiants de première année. Le défi consiste à concevoir un robot autonome, logé dans une véritable gamelle, capable de suivre une ligne noire sur un circuit. Ce projet a été réalisé en binôme : mon partenaire s'est occupé de la partie motorisation, tandis que je me suis chargé de la <strong>partie capteur</strong>.</p>
     <img src="gamel.png" alt="Gamel" class="project-image">
     <h2>1. Réalisation du PCB</h2>
-    <h3>1.1 Conception KiCad</h3>
+    <h3>1.1 Conception avec KiCad</h3>
+    <p>Ma mission consistait à créer une carte de détection précise composée de <strong>5 capteurs infrarouges CNY70</strong> pour ajuster la puissance des moteurs en fonction de la courbure du chemin.</p>
     <div class="gallery">
         <img src="carteface.png" alt="Face">
         <img src="carteback.png" alt="Dos">
     </div>
-    <h3>1.2 Brasage</h3>
+    <h3>1.2 Brasage du PCB</h3>
+    <p>J'ai procédé au brasage des composants après avoir testé les capteurs CNY70 individuellement pour garantir la fiabilité du suivi de ligne.</p>
     <img src="carteaveccapteur.jpg" alt="Brasage" class="project-image">
     <h2>2. Programmation et Tests</h2>
+    <p>Avant d'écrire le code définitif, j'ai utilisé un banc d'essai pour moteurs afin de calibrer les vitesses de rotation.</p>
     <img src="moteur.jpg" alt="Moteurs" class="project-image">
+    <p>La programmation a été réalisée en <strong>C</strong> avec le logiciel <strong>Mbed</strong> pour traiter les signaux analogiques des capteurs et commander les moteurs de manière proportionnelle.</p>
     <img src="programmation.jpg" alt="Mbed" class="project-image">
 </div>
 </body>
