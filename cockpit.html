@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projet Cockpit | Simulateur de Vol</title>
     <style>
-        :root { --primary: #2c3e50; --secondary: #f39c12; /* Orange pour l'aviation */ --bg: #f4f7f6; --text: #333; }
+        :root { --primary: #2c3e50; --secondary: #f39c12; --bg: #f4f7f6; --text: #333; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 40px 20px; }
         .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
         
@@ -14,7 +14,7 @@
         
         h1 { color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 15px; margin-bottom: 30px; }
         h2 { color: var(--primary); margin-top: 40px; font-size: 1.5rem; }
-        h3 { color: #7f8c8d; font-size: 1.1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; }
+        h3 { color: #7f8c8d; font-size: 1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 10px; }
         
         p { margin-bottom: 20px; text-align: justify; }
         ul { margin-bottom: 20px; }
@@ -25,6 +25,10 @@
         
         .project-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 20px 0 30px 0; border: 1px solid #eee; }
         .image-caption { text-align: center; font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-top: -20px; margin-bottom: 30px; display: block; }
+        
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
+        .gallery img { width: 100%; height: auto; border-radius: 8px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .gallery img:hover { transform: scale(1.03); }
     </style>
 </head>
 <body>
@@ -37,29 +41,53 @@
 
     <div class="tech-tags">
         <span>KiCad (CAO)</span>
-        <span>Électronique Embarquée</span>
-        <span>Simulateur de vol</span>
-        <span>Interface Homme-Machine</span>
-        <span>Routage PCB</span>
+        <span>STM32 IDE</span>
+        <span>Python</span>
+        <span>X-Plane 11</span>
+        <span>HID Interface</span>
     </div>
 
-    <p>Ce projet réalisé sur deux semestres consistait à concevoir et réaliser une interface matérielle (panel de contrôle) pour un simulateur de vol[cite: 1, 2]. L'objectif était de créer une carte électronique capable de gérer divers commutateurs et indicateurs pour piloter les fonctions d'un hélicoptère ou d'un avion léger de manière réaliste[cite: 3, 5].</p>
+    <p>Ce projet s'est déroulé sur l'ensemble des semestres 3 et 4. Le semestre 3 a servi d'introduction avec la réalisation d'un PCB et d'une interface homme-machine via <strong>STM32 IDE</strong>, permettant d'envoyer des données depuis un appareil vers l'ordinateur. Nous avons configuré le système comme un clavier d'ordinateur pour envoyer les informations des boutons vers le simulateur <strong>X-Plane</strong> afin de contrôler un hélicoptère.</p>
 
-    <img src="cockpit.jpg" alt="Rendu 3D du panel cockpit" class="project-image">
-    <span class="image-caption">Vue du panel de contrôle finalisé, intégrant les interrupteurs de commande et le rétroéclairage.</span>
+    <img src="boutoncockpit.png" alt="Panel de boutons du cockpit" class="project-image">
+    <span class="image-caption">Configuration des commandes physiques pour le contrôle de l'hélicoptère sous X-Plane.</span>
 
-    <h2>1. Conception Électronique (CAO sous KiCad)</h2>
-    <p>La phase critique a été la conception du circuit imprimé. J'ai utilisé <strong>KiCad</strong> pour schématiser l'ensemble des connexions nécessaires entre le microcontrôleur et les périphériques[cite: 11, 14].</p>
-    <ul>
-        <li><strong>Gestion des Entrées :</strong> Implémentation de boutons poussoirs et d'interrupteurs à levier pour les commandes de vol (batterie, alternateur, lumières de navigation)[cite: 10, 16].</li>
-        <li><strong>Rétroéclairage :</strong> Intégration de LEDs pour permettre une utilisation du panel en conditions de faible luminosité, simulant un cockpit réel[cite: 18].</li>
-        <li><strong>Optimisation du Routage :</strong> Création d'un PCB double face avec un plan de masse optimisé pour limiter les parasites électromagnétiques et assurer une transmission fiable des signaux[cite: 14].</li>
-    </ul>
+    <p>Au semestre 4, le travail en binôme consistait à compléter le <strong>Glass Cockpit</strong> de l'appareil. Sur la base existante, il manquait le tachymètre, l'écran et les voyants d'alerte. Notre groupe s'est spécifiquement chargé de la conception et de l'intégration du bloc des voyants d'alerte.</p>
 
-    <h2>2. Intégration et Ergonomie</h2>
-    <p>Au-delà de l'électronique, le projet exigeait une réflexion sur l'ergonomie. Le panel a été conçu pour être intuitif pour le pilote[cite: 4, 15]. Chaque commande a été placée selon les standards de l'aviation pour favoriser les réflexes en vol simulé[cite: 5, 23].</p>
+    <img src="glasscockpit.jpg" alt="Interface Glass Cockpit" class="project-image">
+    <span class="image-caption">Structure du Glass Cockpit : intégration du système d'alerte visuel.</span>
+
+    <img src="simulateur.jpg" alt="Simulateur de vol en fonctionnement" class="project-image">
+    <span class="image-caption">Test final en immersion dans le simulateur de vol de l'IUT.</span>
+
+    <h2>1. Réalisation du PCB</h2>
     
-    <p>Ce projet m'a permis de maîtriser le cycle complet de développement d'un produit électronique : de la définition du besoin au routage final, en passant par le choix des composants et les tests de continuité[cite: 25].</p>
+    <h3>1.1 Conception sous KiCad</h3>
+    <p>La phase de CAO a permis de structurer l'architecture électronique du panel. J'ai conçu le schéma électrique en intégrant la gestion des signaux pour les commutateurs et le rétroéclairage. Le routage a été optimisé pour une fabrication double-face, garantissant la compacité nécessaire à l'intégration dans le panel physique du cockpit.</p>
+
+    <div class="gallery">
+        <img src="kicadpcb.png" alt="Vue 2D du PCB sous KiCad">
+        <img src="kicadpcb3D.png" alt="Rendu 3D du PCB sous KiCad">
+    </div>
+    <span class="image-caption">À gauche : Tracé des pistes et plan de masse. À droite : Modélisation 3D pour validation de l'encombrement des composants.</span>
+
+    <h3>1.2 Brasage des composants</h3>
+    <p>L'étape de brasage a consisté à assembler les composants critiques sur la carte. J'ai intégré des LEDs de couleurs différentes en respectant scrupuleusement la <strong>datasheet du véritable hélicoptère Cabri G2</strong> pour un réalisme maximal. 
+    L'électronique repose sur un microcontrôleur <strong>STM32L073</strong>, alimenté et programmé via un port <strong>USB-C</strong>. Un régulateur de tension a été ajouté pour abaisser le 5V de l'USB vers le 3,3V nécessaire au microcontrôleur, tandis qu'un connecteur <strong>Micromatch</strong> assure la liaison avec les autres modules.</p>
+
+    <h2>2. Programmation</h2>
+
+    <h3>2.1 Logiciel STM32 IDE</h3>
+    <p>La programmation embarquée a été réalisée sous <strong>STM32CubeIDE</strong>. Le code gère l'acquisition des entrées numériques des boutons et pilote les sorties pour les voyants d'alerte. Nous avons configuré la pile USB pour que la carte soit reconnue nativement comme un périphérique d'interface humaine (HID), permettant une communication fluide et sans latence.</p>
+    
+    <img src="codestm.png" alt="Extrait du code STM32" class="project-image">
+    <span class="image-caption">Configuration des GPIO et de la communication USB sous STM32 IDE.</span>
+
+    <h3>2.2 Code Python de transmission</h3>
+    <p>Pour assurer le lien entre le matériel STM32 et le logiciel de simulation, un script Python a été développé. Ce script utilise diverses fonctions pour lire les datarefs de X-Plane 11 et transmettre les états de vol vers notre panel, permettant d'allumer les voyants d'alerte (Master Warning, Low Rotor, etc.) en fonction des incidents simulés.</p>
+
+    <img src="codepython.png" alt="Extrait du code Python" class="project-image">
+    <span class="image-caption">Script Python gérant l'échange de données en temps réel entre le simulateur et le PCB.</span>
 
 </div>
 
