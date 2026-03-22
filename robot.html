@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projet Robot | Gamel Trophy</title>
     <style>
-        :root { --primary: #2c3e50; --secondary: #27ae60; /* Vert pour la Gamel */ --bg: #f4f7f6; --text: #333; }
+        :root { --primary: #2c3e50; --secondary: #27ae60; --bg: #f4f7f6; --text: #333; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 40px 20px; }
         .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
         
         a.back-btn { text-decoration: none; color: #3498db; font-weight: bold; display: inline-block; margin-bottom: 30px; transition: translateX 0.2s; }
         a.back-btn:hover { transform: translateX(-5px); }
         
-        h1 { color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 15px; margin-bottom: 30px; }
+        h1 { text-align: center; color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 15px; margin-bottom: 30px; }
         h2 { color: var(--primary); margin-top: 40px; font-size: 1.5rem; }
+        
+        /* Style compact harmonisé avec les autres projets */
         h3 { color: #7f8c8d; font-size: 1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 10px; }
         
         p { margin-bottom: 20px; text-align: justify; }
         ul { margin-bottom: 20px; }
         li { margin-bottom: 10px; }
         
-        .tech-tags { margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .tech-tags { margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         .tech-tags span { background: #e8f8f5; color: #27ae60; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
         
         .project-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 20px 0 30px 0; border: 1px solid #eee; }
@@ -37,7 +39,7 @@
     <a href="index.html" class="back-btn">← Retour au Portfolio</a>
     
     <h1>Conception du Robot Gamel Trophy</h1>
-    <h3>Projet Académique S1 - IUT de Cachan | Initiation au Prototypage</h3>
+    <h3>Projet S1 - IUT de Cachan | Initiation au Prototypage</h3>
 
     <div class="tech-tags">
         <span>KiCad (CAO)</span>
@@ -55,7 +57,7 @@
     <h2>1. Réalisation du PCB</h2>
     
     <h3>1.1 Conception avec KiCad</h3>
-    <p>Ma mission consistait à créer une carte de détection précise. La carte capteur est composée de <strong>5 capteurs infrarouges CNY70</strong>. Leur rôle est de détecter la transition entre le blanc et le noir sur la piste pour ajuster la puissance envoyée aux moteurs droit ou gauche selon la courbure du chemin. En plus des capteurs, j'ai dû concevoir l'interface électronique complète (résistances de protection, connectique) pour assurer le dialogue avec le microcontrôleur.</p>
+    <p>Ma mission consistait à créer une carte de détection précise. La carte capteur est composée de <strong>5 capteurs infrarouges CNY70</strong>. Leur rôle est de détecter la transition entre le blanc et le noir sur la piste pour ajuster la puissance envoyée aux moteurs droit ou gauche selon la courbure du chemin. En plus des capteurs, j'ai dû concevoir l'interface électronique complète pour assurer le dialogue avec le microcontrôleur.</p>
 
     <div class="gallery">
         <img src="carteface.png" alt="Vue face du PCB">
@@ -64,7 +66,7 @@
     <span class="image-caption">Tracé du PCB sous KiCad : optimisation du placement des capteurs pour une détection fluide.</span>
 
     <h3>1.2 Brasage du PCB</h3>
-    <p>Après réception du circuit imprimé, j'ai procédé au brasage des composants. Une étape cruciale a été le test préalable des capteurs CNY70. En effet, ces composants sont sensibles et j'ai identifié certaines unités défaillantes lors des tests de continuité et de réflexion. J'ai dû les remplacer pour garantir la fiabilité du suivi de ligne lors de la compétition.</p>
+    <p>Après réception du circuit imprimé, j'ai procédé au brasage des composants. Une étape cruciale a été le test préalable des capteurs CNY70. J'ai identifié certaines unités défaillantes lors des tests de réflexion et j'ai dû les remplacer pour garantir la fiabilité du suivi de ligne lors de la compétition.</p>
 
     <img src="carteaveccapteur.jpg" alt="PCB brasé avec capteurs" class="project-image">
     <span class="image-caption">Carte finale après brasage, prête à être montée à l'avant du châssis.</span>
@@ -76,7 +78,7 @@
     <img src="moteur.jpg" alt="Banc d'essai moteurs" class="project-image">
     <span class="image-caption">Test des motoréducteurs sur banc d'essai pour valider les commandes de puissance.</span>
 
-    <p>Enfin, nous avons assemblé les deux cartes dans la "gamelle". La programmation a été réalisée en **C** avec le logiciel **Mbed**. Nous avons dû élaborer un code fonctionnel traitant les signaux analogiques des capteurs pour commander les moteurs de manière proportionnelle, assurant ainsi un déplacement fluide et rapide du robot sur le circuit.</p>
+    <p>Enfin, nous avons assemblé les deux cartes dans la "gamelle". La programmation a été réalisée en <strong>C</strong> avec le logiciel <strong>Mbed</strong>. Nous avons élaboré un code fonctionnel traitant les signaux analogiques des capteurs pour commander les moteurs de manière proportionnelle.</p>
 
     <img src="programmation.jpg" alt="Interface de programmation Mbed" class="project-image">
     <span class="image-caption">Développement du code C sous Mbed pour la gestion de l'asservissement.</span>
