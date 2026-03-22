@@ -8,91 +8,46 @@
         :root { --primary: #2c3e50; --secondary: #3498db; --bg: #f4f7f6; --text: #333; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); margin: 0; padding: 40px 20px; }
         .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        
         a.back-btn { text-decoration: none; color: var(--secondary); font-weight: bold; display: inline-block; margin-bottom: 30px; transition: translateX 0.2s; }
         a.back-btn:hover { transform: translateX(-5px); }
-        
-        h1 { color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 15px; margin-bottom: 30px; }
+        h1 { text-align: center; color: var(--primary); border-bottom: 3px solid var(--secondary); padding-bottom: 15px; margin-bottom: 30px; }
         h2 { color: var(--primary); margin-top: 40px; font-size: 1.5rem; }
-        h3 { color: #7f8c8d; font-size: 1.1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; }
-        
+        h3 { color: #7f8c8d; font-size: 1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 10px; }
         p { margin-bottom: 20px; text-align: justify; }
-        ul { margin-bottom: 20px; }
-        li { margin-bottom: 10px; }
-        
-        .tech-tags { margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+        .tech-tags { margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         .tech-tags span { background: #e1f5fe; color: #0277bd; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
-        
         .project-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 20px 0 30px 0; border: 1px solid #eee; }
         .image-caption { text-align: center; font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-top: -20px; margin-bottom: 30px; display: block; }
-        
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
-        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .gallery img:hover { transform: scale(1.03); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .gallery img { width: 100%; height: auto; border-radius: 8px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .gallery img:hover { transform: scale(1.03); }
     </style>
 </head>
 <body>
-
 <div class="container">
     <a href="index.html" class="back-btn">← Retour au Portfolio</a>
-    
     <h1>Développement d'un Affichage Énergie Statique interactif</h1>
-    <h3>Stage RATP AME (Atelier de Maintenance Électronique) équipe EK1 - Tuteur Lionel JEBANE</h3>
-
+    <h3>Stage RATP AME équipe EK1 | Tuteur : Lionel JEBANE</h3>
     <div class="tech-tags">
-        <span>Arduino (C++)</span>
-        <span>CAO FreeCAD</span>
-        <span>KiCad</span>
-        <span>Keyence SK-050 / SK-1000</span>
-        <span>Usinage CNC</span>
-        <span>CFAO</span>
+        <span>Arduino (C++)</span> <span>CAO FreeCAD</span> <span>KiCad</span> <span>Keyence SK-1000</span> <span>Usinage CNC</span>
     </div>
-
-    <p>Ce projet majeur de mon stage à la RATP avait pour objectif de concevoir un système de sensibilisation visuel aux risques liés aux décharges électrostatiques (ESD) dans l'atelier de maintenance. J'ai été chargé de développer un panneau d'affichage interactif, capable de mesurer et d'afficher en temps réel la charge statique de différents matériaux de -2000V à +2000V.</p>
-
-    <img src="testpanneau.jpg" alt="Panneau RATP AME finalisé avec interface" class="project-image">
+    <p>Ce projet majeur de mon stage à la RATP avait pour objectif de concevoir un système de sensibilisation visuel aux risques liés aux décharges électrostatiques (ESD). J'ai été chargé de développer un panneau d'affichage interactif, capable de mesurer et d'afficher en temps réel la charge statique de différents matériaux de -2000V à +2000V.</p>
+    <img src="testpanneau.jpg" alt="Panneau finalisé" class="project-image">
     <span class="image-caption">Intégration finale : Le panneau d'affichage interactif finalisé avec son interface visuelle RATP.</span>
-
     <h2>1. Réalisation mécanique</h2>
-    
-    <h3>1.1 Modélisation et impression de supports avec FreeCAD</h3>
-    <p>La première étape de réalisation a consisté à concevoir l'intégration mécanique de l'électronique dans le panneau. J'ai modélisé en 3D l'ensemble des pièces sous <strong>FreeCAD</strong>, un logiciel de CAO open-source. J'ai notamment créé les supports de maintien pour les modules de LEDs en utilisant des fonctions booléennes pour concevoir les empreintes de fixation de manière précise. Ces supports ont ensuite été fabriqués pour permettre un positionnement stable des composants à l'arrière du panneau.</p>
-
-    <h3>1.2 Soudure et câblage des LEDs</h3>
-    <p>Le câblage des 153 LEDs <strong>APA102</strong> a été un défi de précision. Pour chaque module, j'ai procédé au dénudage et à l'étamage rigoureux des fils avant de les connecter aux pastilles. Le raccordement a été réalisé en respectant strictement le sens de circulation des données pour chaîner le <strong>VCC</strong>, le <strong>GND</strong>, le <strong>CLOCK</strong> et le <strong>DATA</strong>. Cette étape a nécessité une grande minutie pour garantir la continuité du signal sur l'ensemble du bargraphe.</p>
-
+    <h3>1.1 Modélisation avec FreeCAD</h3>
+    <p>Conception de l'intégration mécanique et modélisation 3D des supports de maintien pour les modules de LEDs.</p>
+    <h3>1.2 Câblage des LEDs</h3>
+    <p>Brasage minutieux des 153 LEDs APA102 en respectant le chaînage VCC, GND, Clock et Data.</p>
     <div class="gallery">
-        <img src="20260219_092031.jpg" alt="Conception 3D sur FreeCAD">
-        <img src="20260217_150246.jpg" alt="Câblage des modules LED">
+        <img src="20260219_092031.jpg" alt="FreeCAD">
+        <img src="20260217_150246.jpg" alt="Câblage">
     </div>
-    <span class="image-caption">À gauche : Modélisation 3D de la jauge (thermomètre) sur FreeCAD. À droite : Détail du câblage et de l'étamage des modules LED APA102.</span>
-
-    <h3>1.3 Réalisation de la partie extérieure du panneau</h3>
-    <p>Le panneau est composé d'une plaque d'acier rectangulaire sur laquelle j'ai appliqué un habillage visuel comprenant les instructions de la RATP pour l'utilisateur. La face avant comporte des ouvertures spécifiques où viennent s'insérer des blocs de plexiglass usinés à l'aide d'une <strong>fraiseuse CNC</strong>. Ces blocs ont un double rôle : protéger les LEDs installées à l'arrière et diffuser leur rayonnement de manière uniforme à travers le panneau. Les LEDs sont maintenues fermement contre ces blocs grâce à de la colle appliquée sur les supports imprimés en 3D.</p>
-
-    <h3>1.4 Réalisation du PCB pour l'alimentation</h3>
-    <p>Pour alimenter les LEDs, l'Arduino et le capteur <strong>KEYENCE</strong>, j'ai conçu un circuit garantissant une masse commune tout en fournissant une alimentation individuelle de 5V à chaque section pour répondre à leurs besoins en courant respectifs. J'ai réalisé le schéma et le routage du PCB sur <strong>KiCad</strong> en effectuant du <strong>Reverse-Engineering</strong> d'un circuit d'alimentation brute afin d'en réduire la taille. La carte a été usinée sur une plaque de cuivre via une fraiseuse CNC avant l'intégration des composants et de la carte dans le panneau.</p>
-
-    <div class="gallery">
-        <img src="cartePCB.jpg" alt="Fabrication du PCB">
-        <img src="arrieredupanneau.jpg" alt="Arrière du panneau câblé">
-    </div>
-    <span class="image-caption">À gauche : Fabrication du PCB d'alimentation finalisé. À droite : Vue arrière de l'intégration électronique et du câblage général.</span>
-
-    <h2>2. Programmation</h2>
-    
-    <p>L'intelligence du système repose sur un <strong>Arduino Nano</strong>. Le pilotage des LEDs s'effectue via les ports <strong>SCK</strong> (Clock) et <strong>MOSI</strong> (Data). Le microcontrôleur reçoit des données depuis le capteur d'énergie statique <strong>KEYENCE</strong> qui envoie une valeur analogique entre 0V et 5V (où 2,5V correspond à une valeur captée de 0V) et la convertit en valeur numérique sur 10 bits via son entrée <strong>A0</strong>.</p>
-    
-    <p>Le fonctionnement du panneau est réparti en deux modes :</p>
-    <ul>
-        <li><strong>Mode Mesure</strong> : Lorsqu'un objet est capté, le bargraphe de LEDs affiche la valeur mesurée à l'utilisateur pendant 5 secondes.</li>
-        <li><strong>Mode Animation</strong> : Lorsqu'aucun objet n'est détecté, le système fait défiler une animation de type chenillard pour attirer l'œil et indiquer que le système est pleinement opérationnel.</li>
-    </ul>
-
-    <img src="panneau.jpg" alt="Panneau RATP AME en test fonctionnel" class="project-image">
-    <span class="image-caption">Phase de test et calibration : Le panneau est fonctionnel et relié au PC portable, montrant la réactivité du bargraphe à LEDs selon la mesure du capteur.</span>
-
+    <span class="image-caption">À gauche : Modélisation 3D sur FreeCAD. À droite : Détail du câblage des modules LED.</span>
+    <h2>2. Programmation et Acquisition</h2>
+    <p>Utilisation d'un Arduino Nano pour traiter le signal analogique 0-5V du capteur Keyence et piloter les modes "Mesure" et "Animation".</p>
+    <img src="panneau.jpg" alt="Test fonctionnel" class="project-image">
+    <span class="image-caption">Phase de test et calibration : Le panneau est fonctionnel et réagit en temps réel aux mesures du capteur.</span>
 </div>
-
 </body>
 </html>
