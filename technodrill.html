@@ -14,13 +14,13 @@
         h2 { color: var(--primary); margin-top: 40px; font-size: 1.5rem; }
         h3 { color: #7f8c8d; font-size: 1rem; font-weight: normal; margin-top: -10px; margin-bottom: 30px; text-align: center; border-top: 1px solid #eee; padding-top: 10px; }
         p { margin-bottom: 20px; text-align: justify; }
+        ul { margin-bottom: 20px; }
         .tech-tags { margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         .tech-tags span { background: #fdecea; color: #c0392b; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
         .project-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 20px 0 30px 0; border: 1px solid #eee; }
         .image-caption { text-align: center; font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-top: -20px; margin-bottom: 30px; display: block; }
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
         .gallery img { width: 100%; height: auto; border-radius: 8px; cursor: pointer; transition: transform 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .gallery img:hover { transform: scale(1.03); }
     </style>
 </head>
 <body>
@@ -31,22 +31,33 @@
     <div class="tech-tags">
         <span>CFAO</span> <span>GALAAD 3</span> <span>Percival</span> <span>KiCad</span> <span>Usinage de précision</span>
     </div>
-    <p>Ce projet visait l'appropriation complète de la fraiseuse CNC Technodrill 3 pour le prototypage rapide de circuits imprimés (PCB).</p>
-    <img src="technodrill.jpg" alt="Technodrill 3" class="project-image">
-    <span class="image-caption">La machine Technodrill 3 : Fraiseuse à commande numérique de précision.</span>
-    <h2>1. Environnement Logiciel</h2>
-    <h3>1.1 GALAAD 3 : Pilotage machine</h3>
-    <p>Logiciel de pilotage direct pour l'usinage, la gestion des outils et le surfaçage du plateau martyr.</p>
-    <h3>1.2 Percival : Pré-traitement CFAO</h3>
-    <p>Interface intermédiaire pour l'importation de fichiers Gerber et le calcul automatique des pistes d'isolation.</p>
+    <p>Ce projet de fin d'études à l'IUT de Cachan visait l'appropriation complète de la fraiseuse CNC Technodrill 3. L'objectif était de transformer un schéma théorique conçu sur KiCad en un circuit imprimé (PCB) fonctionnel répondant aux standards industriels, tout en rédigeant un tutoriel complet pour former les futures promotions d'étudiants.</p>
+    <img src="technodrill.jpg" alt="Fraiseuse CNC Technodrill 3" class="project-image">
+    <span class="image-caption">La machine Technodrill 3 : Fraiseuse à commande numérique de précision utilisée pour le prototypage rapide de circuits imprimés.</span>
+    <h2>1. Environnement Logiciel et Pilotage Numérique</h2>
+    <h3>1.1 GALAAD 3 : Le cœur du pilotage</h3>
+    <p><strong>GALAAD 3</strong> est le logiciel central qui permet de piloter directement la machine et de réaliser l'usinage. Il interprète les trajectoires et réalise les mouvements G-code en temps réel sans logiciel intermédiaire.</p>
+    <ul>
+        <li><strong>Gestion de l'outillage :</strong> Permet de configurer la bibliothèque d'outils, de choisir précisément quelle fraise ou quel foret utiliser.</li>
+        <li><strong>Réglages physiques :</strong> Il gère la mise au point de l'axe Z, les procédures de surfaçage du plateau martyr pour garantir la planéité, et l'activation de la caméra intégrée pour le centrage.</li>
+        <li><strong>Conception :</strong> Offre la possibilité de créer nos propres croquis de gravure directement dans l'interface pour des pièces de test simples.</li>
+    </ul>
+    <h3>1.2 Percival : L'interface de pré-traitement CFAO</h3>
+    <p><strong>Percival</strong> agit exclusivement comme un intermédiaire pour préparer les fichiers complexes avant l'usinage final sous GALAAD. Il sert à importer les fichiers Gerber provenant de logiciels de CAO comme KiCad.</p>
+    <ul>
+        <li><strong>Automatisation :</strong> À partir des fichiers importés, Percival dessine automatiquement les pistes d'isolation et génère les trajectoires de perçage.</li>
+        <li><strong>Évolutivité du projet :</strong> Il permet de combiner toutes les manipulations nécessaires, comme l'ajout de trous de fixation, dans un seul projet d'usinage cohérent.</li>
+        <li><strong>Optimisation :</strong> Il facilite l'enchaînement des étapes sans intervention humaine pour remplacer les fraises et forets virtuels avant le transfert vers GALAAD.</li>
+    </ul>
     <div class="gallery">
-        <img src="gaalad.jpg" alt="GALAAD 3">
-        <img src="percival.jpg" alt="Percival">
+        <img src="gaalad.jpg" alt="Interface GALAAD 3">
+        <img src="percival.jpg" alt="Interface Percival">
     </div>
-    <span class="image-caption">À gauche : Interface GALAAD 3. À droite : Traitement sous Percival.</span>
-    <h2>2. Réalisation</h2>
-    <img src="usinage.jpg" alt="Usinage PCB" class="project-image">
-    <span class="image-caption">Exécution physique : Phase de gravure d'un PCB double-face.</span>
+    <span class="image-caption">À gauche : Interface de pilotage GALAAD 3. À droite : Traitement des couches PCB sous Percival.</span>
+    <h2>2. Réalisation et Exécution Physique</h2>
+    <p>Une fois la chaîne logicielle validée, nous passons à l'exécution physique. Cette étape demande une rigueur absolue : fixation de la plaque de cuivre sur le plateau martyr, réglage micrométrique du zéro machine et surveillance constante de la vitesse de broche (jusqu'à 24 000 tr/min) pour éviter toute casse d'outil ou arrachement du cuivre.</p>
+    <img src="usinage.jpg" alt="Usinage d'un PCB sur la Technodrill 3" class="project-image">
+    <span class="image-caption">Exécution physique : Phase de gravure d'un PCB double-face fixée sur le plateau martyr.</span>
 </div>
 </body>
 </html>
