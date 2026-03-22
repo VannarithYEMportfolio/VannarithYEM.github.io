@@ -29,26 +29,31 @@
     <h1>Conception du Robot Gamel Trophy</h1>
     <h3>Projet S1 - IUT de Cachan | Initiation au Prototypage</h3>
     <div class="tech-tags">
-        <span>KiCad (CAO)</span> <span>C (Mbed)</span> <span>Analogique</span> <span>Robotique</span>
+        <span>KiCad (CAO)</span> <span>C (Mbed)</span> <span>Électronique Analogique</span> <span>Robotique suiveur de ligne</span>
     </div>
     <h2>Introduction</h2>
-    <p>La <strong>Gamel Trophy</strong> est une compétition emblématique de l'IUT de Cachan qui oppose les étudiants de première année. Le défi consiste à concevoir un robot autonome, logé dans une véritable gamelle, capable de suivre une ligne noire sur un circuit. Ce projet a été réalisé en binôme : mon partenaire s'est occupé de la partie motorisation, tandis que je me suis chargé de la <strong>partie capteur</strong>.</p>
+    <p>La <strong>Gamel Trophy</strong> est une compétition emblématique de l'IUT de Cachan qui oppose les étudiants de première année. Le défi consiste à concevoir un robot autonome, logé dans une véritable gamelle, capable de suivre une <strong>ligne blanche</strong> sur un circuit le plus rapidement possible. Ce projet a été réalisé en binôme : mon partenaire s'est occupé de la partie motorisation, tandis que je me suis chargé de la <strong>partie capteur</strong>.</p>
     <img src="gamel.png" alt="Gamel" class="project-image">
+    <span class="image-caption">Le robot Gamel terminé, prêt pour la compétition sur piste.</span>
     <h2>1. Réalisation du PCB</h2>
     <h3>1.1 Conception avec KiCad</h3>
-    <p>Ma mission consistait à créer une carte de détection précise composée de <strong>5 capteurs infrarouges CNY70</strong> pour ajuster la puissance des moteurs en fonction de la courbure du chemin.</p>
+    <p>Ma mission consistait à créer une carte de détection précise. La carte capteur est composée de <strong>5 capteurs infrarouges CNY70</strong>. Leur rôle est de détecter la réflexion de la <strong>ligne blanche</strong> pour ajuster la puissance envoyée aux moteurs droit ou gauche selon la forme du chemin. J'ai aussi dû concevoir l'interface électronique complète pour assurer le dialogue avec le microcontrôleur.</p>
     <div class="gallery">
         <img src="carteface.png" alt="Face">
         <img src="carteback.png" alt="Dos">
     </div>
+    <span class="image-caption">Tracé du PCB sous KiCad : optimisation du placement des capteurs.</span>
     <h3>1.2 Brasage du PCB</h3>
-    <p>J'ai procédé au brasage des composants après avoir testé les capteurs CNY70 individuellement pour garantir la fiabilité du suivi de ligne.</p>
+    <p>Après réception du circuit imprimé, j'ai procédé au brasage des composants. Une étape cruciale a été le test préalable des capteurs CNY70. J'ai identifié certaines unités défaillantes lors des tests de réflexion et j'ai dû les remplacer pour garantir la fiabilité du suivi de ligne.</p>
     <img src="carteaveccapteur.jpg" alt="Brasage" class="project-image">
+    <span class="image-caption">Carte capteur finalisée après brasage et tests de fonctionnement.</span>
     <h2>2. Programmation et Tests</h2>
-    <p>Avant d'écrire le code définitif, j'ai utilisé un banc d'essai pour moteurs afin de calibrer les vitesses de rotation.</p>
+    <p>Avant d'écrire le code définitif, j'ai utilisé un banc d'essai pour moteurs afin de tester leur comportement et de bien comprendre le travail réalisé par mon binôme.</p>
     <img src="moteur.jpg" alt="Moteurs" class="project-image">
-    <p>La programmation a été réalisée en <strong>C</strong> avec le logiciel <strong>Mbed</strong> pour traiter les signaux analogiques des capteurs et commander les moteurs de manière proportionnelle.</p>
+    <span class="image-caption">Banc d'essai utilisé pour calibrer la réponse des moteurs.</span>
+    <p>Enfin, nous avons assemblé les deux cartes dans la "gamelle". La programmation a été réalisée en <strong>C</strong> avec le logiciel <strong>Mbed</strong> pour traiter les signaux analogiques des capteurs et commander les moteurs de manière proportionnelle.</p>
     <img src="programmation.jpg" alt="Mbed" class="project-image">
+    <span class="image-caption">Développement et débogage du code de pilotage sous Mbed.</span>
 </div>
 </body>
 </html>
